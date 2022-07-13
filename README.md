@@ -2,66 +2,72 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
+A CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers' posts as well. This application is also deployed to Heroku and follows the MVC (Model-View-Controller) paradigm in its archiectural structure.
 
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
 
-## Table of Contents (Optional)
-
-If your README is long, add a table of contents to make it easy for users to find what they need.
+## Table of Contents 
 
 - [Installation](#installation)
 - [Usage](#usage)
-- [Credits](#credits)
-- [License](#license)
+- [User Story](#user_story)
+- [Features](#features)
+- [Links](#links)
+- [Questions](#questions)
+
 
 ## Installation
 
-What are the steps required to install your project? Provide a step-by-step description of how to get the development environment running.
+In order to run this application, first run "npm i" in order to install all required packages to run the application. Next, type "node server.js" in the command line in order to start the server. 
+
+NPM Install:
+
+![alt text](public/images/npmi.png)
+
+Start Server:
+
+![alt text](public/images/nodeserver.png)
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+When the users visits the site for the first time, he or she is directed to the homepage that includes existing blog posts if any have been posted. The user is presented with navigation links with options to log-in and click on the homepage. On the homepage, the user is prompted to sign-up or sign-in. When prompted to sign-up, user is prompted to set a username and password. When the user clicks on an existing blog post, the user is presented with the post title, contents, post creator's username, and date created for that post and have the option to leave a comment. When the user is idle on the site for more than five minutes, the user is signed out automatically. 
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative filepath, add it to your README using the following syntax:
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
+Existing Blog Posts on Homepage:
 
-## Credits
+![alt text](public/images/existingposts.png)
 
-List your collaborators, if any, with links to their GitHub profiles.
+Log-In Page: 
 
-If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
+![alt text](public/images/login.png)
 
-If you followed tutorials, include links to those here as well.
+Sign-Up Page: 
 
-## License
+![alt text](public/images/signup.png)
 
-The last section of a high-quality README file is the license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, refer to [https://choosealicense.com/](https://choosealicense.com/).
+## User_Story
 
----
+AS A developer who writes about tech
+I WANT a CMS-style blog site
+SO THAT I can publish articles, blog posts, and my thoughts and opinions
 
-🏆 The previous sections are the bare minimum, and your project will ultimately determine the content of this document. You might also want to consider adding the following sections.
-
-## Badges
-
-![badmath](https://img.shields.io/github/languages/top/lernantino/badmath)
-
-Badges aren't necessary, per se, but they demonstrate street cred. Badges let other developers know that you know what you're doing. Check out the badges hosted by [shields.io](https://shields.io/). You may not understand what they all represent now, but you will in time.
 
 ## Features
 
-If your project has a lot of features, list them here.
+- Heroku App
+- Handlebars.js
+- Sequelize as the ORM
+- Express-Session and connect-session-sequelize packages for authentication
+- MySQL 2
+- Express.js API for Controllers
+- dotenv package for environemnt variables
+- bcrypt package to hash passwords
 
-## How to Contribute
 
-If you created an application or package and would like other developers to contribute it, you can include guidelines for how to do so. The [Contributor Covenant](https://www.contributor-covenant.org/) is an industry standard, but you can always write your own if you'd prefer.
+## Links
 
-## Tests
+Repo: https://github.com/Deven1991/Tech-Blog.git
+Heroku: https://tech-blog-deven.herokuapp.com/
 
-Go the extra mile and write tests for your application. Then provide examples on how to run them here.
+## Questions
+
+Please contact Melissa Deven at mmdeven@gmail.com with any questions on this application. 
