@@ -6,6 +6,7 @@ const helpers = require('./utils/helpers');
 require('dotenv').config();
 
 const app = express();
+app.use(session({ secret: 'somevalue' }));
 const PORT = process.env.PORT || 3001;
 
 const { strict } = require('assert');
