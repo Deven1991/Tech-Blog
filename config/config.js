@@ -2,10 +2,9 @@ const Sequelize = require('sequelize');
 require('dotenv').config();
 
 // create connection to our db using the application helper, JAWS_DB 
-// https://coding-boot-camp.github.io/full-stack/heroku/deploy-with-heroku-and-mysql
 const sequelize = process.env.JAWSDB_URL
     ? new Sequelize(process.env.JAWSDB_URL)
-    : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PW, {
+    : new Sequelize(process.env.DB_NAME, process.env.DB_USER, process.env.DB_PASSWORD, {
         host: 'localhost',
         dialect: 'mysql',
         port: 3306
