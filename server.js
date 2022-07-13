@@ -16,7 +16,7 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const sess = {
     secret: process.env.SECRET,
     cookie: {
-        // maxAge expires after 5 minutes. After 5 minutes user will have to log in again.
+        // maxAge expires after 5 minutes
         maxAge: 300000,
         httpOnly: true,
         secure: false,
