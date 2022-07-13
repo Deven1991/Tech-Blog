@@ -169,7 +169,7 @@ input {
 /* CARDS */
 .card {
     margin: 0 0 20px 0;
-    border: 3px solid var(--dark);
+    border: 4px solid var(--dark);
     border-radius: var(--border-radius);
 }
 
@@ -177,11 +177,16 @@ input {
     color: var(--primary);
     background-color: var(--dark);
     padding: 1%;
-    border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0;
+    /* border-radius: calc(0.18rem - 1px) calc(0.18rem - 1px) 0 0; */
 }
 
 .card-body {
     padding: 1%;
+}
+
+.com-header {
+    height: 49.188px;
+    width: 100%;
 }
 
 /* FORM */
@@ -217,6 +222,18 @@ input {
 /* FONT UTILS */
 .text-uppercase {
     text-transform: uppercase;
+}
+
+.name-date {
+    font-weight: 500;
+    font-size: 20px;
+    align-self: center;
+}
+
+/* TEXT UTILS */
+.text-center {
+    display: block;
+    text-align: center;
 }
 
 /* FLEX CONTENT */
