@@ -1,17 +1,15 @@
-<div class="posts">
-    {{#each posts}}
-    <article class="card">
-        <div class="card-header flex-row justify-space-between">
-            <h2>
-                <a href="/post/{{id}}">{{title}}</a>
-            </h2>
-            <div>
-                Posted by {{User.username}} on {{format_date createdAt}}
-            </div>
-        </div>
-        <div class="card-body">
-            {{body}}
-        </div>
-    </article>
+<div class="posts list-group">
+    {{#each posts as |post| }}
+    <div class="card">
+        <a href="/post/{{post.id}}">
+            <h1 class="card-header flex-row justify-space-between">
+                <div>{{title}}</div>
+                <div class="name-date">Posted by '{{User.username}}' on {{format_date createdAt}}</div>
+            </h1>
+        </a>
+        <p class="card-body">
+            {{post.body}}
+        </p>
+    </div>
     {{/each}}
 </div>

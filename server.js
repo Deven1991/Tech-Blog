@@ -1,17 +1,27 @@
-const path = require("path");
-const express = require("express");
-const session = require("express-session");
-const exphbs = require("express-handlebars");
+const path = require('path');
+const express = require('express');
+const session = require('express-session');
+const exphbs = require('express-handlebars');
+const helpers = require('./utils/helpers');
+require('dotenv').config();
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-const sequelize = require("./config/connection.js");
+const { strict } = require('assert');
+const routes = require('./controllers');
+const sequelize = require('./config/config');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 const sess = {
-    secret: "Super secret secret",
-    cookie: {},
+    secret: process.env.SECRET,
+    cookie: {
+        // maxAge expires after 5 minutes. After 5 minutes user will have to log in again.
+        maxAge: 300000,
+        httpOnly: true,
+        secure: false,
+        sameSite: 'strict',
+    },
     resave: false,
     saveUninitialized: true,
     store: new SequelizeStore({
@@ -20,25 +30,21 @@ const sess = {
 };
 
 app.use(session(sess));
+const hbs = exphbs.create({ helpers });
 
-const hbs = exphbs.create({
-    helpers: {
-        format_date: date => {
-            return `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
-        }
-    }
-});
-
-app.engine("handlebars", hbs.engine);
-app.set("view engine", "handlebars");
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, "public")));
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(require('./controllers/'));
+app.use(routes);
 
-app.listen(PORT, () => {
-    console.log(`App listening on port ${PORT}!`);
-    sequelize.sync({ force: false });
+sequelize.sync({ force: false }).then(() => {
+    app.listen(PORT, () =>
+        console.log(
+            `\nServer running on port ${PORT}. Visit http://localhost:${PORT} and create an account.`
+        )
+    );
 });
